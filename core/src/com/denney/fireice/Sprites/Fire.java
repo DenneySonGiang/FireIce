@@ -42,7 +42,7 @@ public class Fire extends Sprite{
     //Additionally, it sets its shape, size, and position inside the game world
     public void defineFire() {
         BodyDef bdef = new BodyDef();
-        bdef.position.set(44 / FireIce.PPM, 16 / FireIce.PPM);
+        bdef.position.set(88 / FireIce.PPM, 80 / FireIce.PPM);
         bdef.type = BodyDef.BodyType.DynamicBody;
         b2bodyFire = worldFire.createBody(bdef);
         FixtureDef fdef = new FixtureDef();

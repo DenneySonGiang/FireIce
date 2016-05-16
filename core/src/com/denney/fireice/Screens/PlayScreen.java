@@ -47,7 +47,7 @@ public class PlayScreen implements Screen {
         gamecam.position.set(gamePort.getWorldWidth() / 2, gamePort.getWorldHeight() / 2, 0);
         world = new World(new Vector2(0, 0), true);
         fire = new Fire(world);
-//        ice = new Ice(world);
+        ice = new Ice(world);
         b2dr = new Box2DDebugRenderer();
         new B2WorldCreator(world, map);
         world.setContactListener(new WorldContactListener(game));
@@ -60,25 +60,27 @@ public class PlayScreen implements Screen {
 
     //Input Detection, touching left or right of screen & then apply velocity to that direction
     public void handleInput(float dt) {
-        if (Gdx.input.getX() > gamePort.getScreenWidth() / 2 && Gdx.input.isTouched() ) {
+        if (Gdx.input.getX() > gamePort.getScreenWidth() / 2 && Gdx.input.isTouched() && fire.b2bodyFire.getPosition().x < 162 / FireIce.PPM) {
             fire.b2bodyFire.setLinearVelocity(2, 1);
+            ice.b2bodyIce.setLinearVelocity(-2, 1);
         }
-        if (Gdx.input.getX() < gamePort.getScreenWidth() / 2 && Gdx.input.isTouched() ) {
+        if (Gdx.input.getX() < gamePort.getScreenWidth() / 2 && Gdx.input.isTouched() && fire.b2bodyFire.getPosition().x > 10 / FireIce.PPM) {
             fire.b2bodyFire.setLinearVelocity(-2, 1);
+            ice.b2bodyIce.setLinearVelocity(2, 1);
         }
     }
 
     //Update each frame, and any other variables that need to change per frame
     public void update(float dt) {
         handleInput(dt);
-        gamecam.position.y = fire.b2bodyFire.getPosition().y + 150 / FireIce.PPM;
+        gamecam.position.y = (fire.b2bodyFire.getPosition().y) + 100 / FireIce.PPM;
         world.step(1 / 60f, 6, 2);
         fire.update(dt);
-//        ice.update(dt);
+        ice.update(dt);
         gamecam.update();
         renderer.setView(gamecam);
         fire.b2bodyFire.setLinearVelocity(0, 1);
-//        ice.b2bodyIce.setLinearVelocity(0,1);
+        ice.b2bodyIce.setLinearVelocity(0,1);
 
     }
 
@@ -93,7 +95,7 @@ public class PlayScreen implements Screen {
         game.batch.setProjectionMatrix(gamecam.combined);
         game.batch.begin();
         fire.draw(game.batch);
-//        ice.draw(game.batch);
+        ice.draw(game.batch);
         game.batch.end();
     }
 

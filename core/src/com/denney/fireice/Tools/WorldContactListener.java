@@ -33,9 +33,9 @@ public class WorldContactListener implements ContactListener {
         if (fixA.getUserData() == "fire" && fixB.getUserData() == "wall" || fixA.getUserData() == "wall" && fixB.getUserData() == "fire") {
             game.setScreen(new PlayScreen((FireIce) game));
         }
-//        if (fixA.getUserData() == "ice" && fixB.getUserData() == "wall" || fixA.getUserData() == "wall" && fixB.getUserData() == "ice") {
-//            game.setScreen(new PlayScreen((FireIce) game));
-//        }
+        if (fixA.getUserData() == "ice" && fixB.getUserData() == "wall" || fixA.getUserData() == "wall" && fixB.getUserData() == "ice") {
+            game.setScreen(new PlayScreen((FireIce) game));
+        }
     }
 
     @Override

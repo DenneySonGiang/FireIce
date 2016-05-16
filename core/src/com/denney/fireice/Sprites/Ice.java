@@ -38,7 +38,7 @@ public class Ice extends Sprite {
     //Additionally, it sets its shape, size, and position inside the game world
     public void defineIce() {
         BodyDef bdef = new BodyDef();
-        bdef.position.set(132 / FireIce.PPM, 16 / FireIce.PPM);
+        bdef.position.set(88 / FireIce.PPM, 16 / FireIce.PPM);
         bdef.type = BodyDef.BodyType.DynamicBody;
         b2bodyIce = worldIce.createBody(bdef);
         FixtureDef fdef = new FixtureDef();
