@@ -14,7 +14,8 @@ import com.denney.fireice.FireIce;
 /**
  * Created by Denney Giang on 3/14/2016.
  */
-//Creating the game world and identifying the hitboxes of the objects in the game world. Also positions the game world onto the screen
+//Creating the game world & map and identifying the hitboxes of the objects in the game world.
+//Also positions the game world onto the screen
 public class B2WorldCreator {
     public B2WorldCreator(World world, TiledMap map) {
         BodyDef bdef = new BodyDef();

@@ -32,7 +32,7 @@ public class PlayScreen implements Screen {
     private OrthogonalTiledMapRenderer renderer;
     private Fire fire;
     private Ice ice;
-    //Box2d variables
+    //Box2d variables that will detect collision
     private World world;
     private Box2DDebugRenderer b2dr;
 
@@ -58,6 +58,7 @@ public class PlayScreen implements Screen {
 
     }
 
+    //Input Detection, touching left or right of screen & then apply velocity to that direction
     public void handleInput(float dt) {
         if (Gdx.input.getX() > gamePort.getScreenWidth() / 2 && Gdx.input.isTouched() ) {
             fire.b2bodyFire.setLinearVelocity(2, 1);
@@ -67,6 +68,7 @@ public class PlayScreen implements Screen {
         }
     }
 
+    //Update each frame, and any other variables that need to change per frame
     public void update(float dt) {
         handleInput(dt);
         gamecam.position.y = fire.b2bodyFire.getPosition().y + 150 / FireIce.PPM;
@@ -80,6 +82,7 @@ public class PlayScreen implements Screen {
 
     }
 
+    //Renders the app, configures app to draw/create objects and configures camera
     @Override
     public void render(float delta) {
         update(delta);
@@ -114,6 +117,7 @@ public class PlayScreen implements Screen {
 
     }
 
+    //Disposes of any objects that are no longer needed to reduce memory usage & storage
     @Override
     public void dispose() {
         map.dispose();

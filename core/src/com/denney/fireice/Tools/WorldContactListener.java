@@ -25,18 +25,17 @@ public class WorldContactListener implements ContactListener {
         this.game = game;
     }
 
+    //
     @Override
     public void beginContact(Contact contact) {
         Fixture fixA = contact.getFixtureA();
         Fixture fixB = contact.getFixtureB();
         if (fixA.getUserData() == "fire" && fixB.getUserData() == "wall" || fixA.getUserData() == "wall" && fixB.getUserData() == "fire") {
-            System.out.println("Fire Collision Detected");
             game.setScreen(new PlayScreen((FireIce) game));
         }
-        if (fixA.getUserData() == "ice" && fixB.getUserData() == "wall" || fixA.getUserData() == "wall" && fixB.getUserData() == "ice") {
-            System.out.println("Ice Collision Detected");
-            //game.setScreen(new PlayScreen((FireIce) game));
-        }
+//        if (fixA.getUserData() == "ice" && fixB.getUserData() == "wall" || fixA.getUserData() == "wall" && fixB.getUserData() == "ice") {
+//            game.setScreen(new PlayScreen((FireIce) game));
+//        }
     }
 
     @Override

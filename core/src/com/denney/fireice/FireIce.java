@@ -14,13 +14,14 @@ import com.denney.fireice.Screens.PlayScreen;
  */
 
 public class FireIce extends Game {
-	//Variables
+	//Variables used for referencing with other classes
 	public static final int V_WIDTH = 176;
 	public static final int V_HEIGHT = 400;
 	public static final float PPM = 100;
 	public SpriteBatch batch;
 
-	//Constructor for basic structure of game
+	//Constructor for the game (initializes game variable and tells the game to launch a
+	//Specific screen to start the game
 	@Override
 	public void create() {
 		batch = new SpriteBatch();

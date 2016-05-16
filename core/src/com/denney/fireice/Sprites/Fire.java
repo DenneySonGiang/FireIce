@@ -19,10 +19,12 @@ import com.badlogic.gdx.physics.box2d.joints.RevoluteJointDef;
 import com.denney.fireice.FireIce;
 
 public class Fire extends Sprite{
+    //Initialize Variables
     public World worldFire;
     public Body b2bodyFire;
     private final TextureRegion fireTexture = new TextureRegion(new Texture("red.png"));
 
+    //Constructor
     public Fire(World world) {
         this.worldFire = world;
         defineFire();
@@ -30,11 +32,14 @@ public class Fire extends Sprite{
         setRegion(fireTexture);
     }
 
+    //Updates the position relative to time
     public void update(float dt) {
         setPosition(b2bodyFire.getPosition().x - getWidth() / 2, b2bodyFire.getPosition().y - getHeight() / 2);
-        System.out.print(b2bodyFire.getWorldCenter());
     }
 
+    //Almost similar to a constructor, it builds the object using the Body class and
+    //makes sure its collision properties and identification are correctly implemented.
+    //Additionally, it sets its shape, size, and position inside the game world
     public void defineFire() {
         BodyDef bdef = new BodyDef();
         bdef.position.set(44 / FireIce.PPM, 16 / FireIce.PPM);

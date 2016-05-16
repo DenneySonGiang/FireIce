@@ -96,6 +96,7 @@ public class MenuScreen implements Screen {
 
     }
 
+    //Disposes of any objects that are no longer needed to reduce memory usage & storage
     @Override
     public void dispose() {
         stage.dispose();
