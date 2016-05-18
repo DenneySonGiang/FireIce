@@ -42,7 +42,8 @@ public class PlayScreen implements Screen {
         gamecam = new OrthographicCamera();
         gamePort = new FitViewport(FireIce.V_WIDTH / FireIce.PPM, FireIce.V_HEIGHT / FireIce.PPM, gamecam);
         mapLoader = new TmxMapLoader();
-        map = mapLoader.load("level3.tmx");
+//        map = mapLoader.load(game.mapName);
+        map = mapLoader.load(game.mapName);
         renderer = new OrthogonalTiledMapRenderer(map, 1 / FireIce.PPM);
         gamecam.position.set(gamePort.getWorldWidth() / 2, gamePort.getWorldHeight() / 2, 0);
         world = new World(new Vector2(0, 0), true);
@@ -81,7 +82,6 @@ public class PlayScreen implements Screen {
         renderer.setView(gamecam);
         fire.b2bodyFire.setLinearVelocity(0, 1);
         ice.b2bodyIce.setLinearVelocity(0,1);
-
     }
 
     //Renders the app, configures app to draw/create objects and configures camera

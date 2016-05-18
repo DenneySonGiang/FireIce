@@ -1,11 +1,8 @@
 package com.denney.fireice;
 
 import com.badlogic.gdx.Game;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.denney.fireice.Screens.MenuScreen;
-import com.denney.fireice.Screens.PlayScreen;
 
 
 
@@ -18,6 +15,7 @@ public class FireIce extends Game {
 	public static final int V_WIDTH = 176;
 	public static final int V_HEIGHT = 400;
 	public static final float PPM = 100;
+	public String mapName;
 	public SpriteBatch batch;
 
 	//Constructor for the game (initializes game variable and tells the game to launch a
@@ -26,6 +24,7 @@ public class FireIce extends Game {
 	public void create() {
 		batch = new SpriteBatch();
 		setScreen(new MenuScreen(this));
+		mapName = null;
 	}
 
 	//Rendering frames
